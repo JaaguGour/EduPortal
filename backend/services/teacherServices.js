@@ -93,68 +93,7 @@ function studentLeaveDataservices(res){
 }
 
 
-
-// function addteacherservices(data){
-//   return new Promise((resolve,reject)=>{
-
-
-
-//    function createUsername(name, aadharNumber) {
-//      const aadharStr = String(aadharNumber).trim();
-//      const last4Digits = aadharStr.slice(-4);
-//      const username = name + last4Digits;
-//      return username;
-//    }
-//    const name = createUsername(data.firstName, data.aadharNumber);
-//    const password = `${data.firstName}@123`;
-
-//     const teacherData = [
-//       data.firstName,
-//       data.lastName,
-//       data.dateOfBirth,
-//       data.gender,
-//       data.address,
-//       data.primaryPhone,
-//       data.email,
-//       data.aadharNumber,
-//       data.file,
-//       name,
-//       data.designation,
-//       data.status,
-//       data.assignedClass,
-//       data.assignedSubject,
-//       name,
-//       password,
-//       data.emergencyContactName,
-//       data.emergencyContactNumber,
-//       data.bloodGroup
-//     ];
-
-
-//     const sql = 'INSERT INTO teachers( `first_name`, `last_name`, `date_of_birth`, `gender`, `address`, `phone_number`, `email`, `aadhar_number`, `photo`, `employee_id`, `designation`, `status`, `assigned_classes`, `assigned_subjects`, `user_name`, `password`, `emergency_contact_name`, `emergency_contact_number`, `blood_group`) VALUES(?)'
-//     connection.query(sql, [teacherData], (error, result) => {
-//       if (error) {
-//         console.log(error);
-//          if (error.code === '23505') {
-//            // Duplicate entry (unique constraint violation)
-//           return {status:409,json:({ error: 'Teacher already exists' })};
-//           } else {
-//           return { status: 500, json: { error: "failed to add teacher" } };
-//            }
-//          }
-//       console.log(data);
-//       return { status: 201, json: { msg: "successfully submitted" } };
-//     });
   
-
-
-
-
-// })
-  
-
-
-// }
 function addteacherservices(data) {
   return new Promise((resolve, reject) => {
     function createUsername(name, aadharNumber) {
@@ -234,7 +173,6 @@ function addteacherservices(data) {
 }
 
 function RemoveTeacherServices(teacher_id,res){
-  // console.log("teacher id is",teacher_id)
   return new Promise((resolve, reject) => {
     const sql = "DELETE FROM teachers WHERE employee_id= ?";
     connection.query(sql,[teacher_id],(err,result)=>{

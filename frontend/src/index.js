@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import reducer from './store/reducer';
+import alertReducer from './store/alertReducer';
 import teacherinfoReducer from './store/teacherinfoReducer';
 import studentinfoReducer from './store/studentinfoReducer';
 import admininfoReducer from './store/admininfoReducer';
@@ -15,7 +16,8 @@ const store = configureStore({
     LogIn: reducer,
     TeacherInfo: teacherinfoReducer,
     StudentInfo: studentinfoReducer,
-    AdminInfo : admininfoReducer
+    AdminInfo: admininfoReducer,
+    Alert: alertReducer,
   },
 });
 root.render(

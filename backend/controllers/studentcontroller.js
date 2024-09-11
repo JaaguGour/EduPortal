@@ -1,5 +1,6 @@
 const express = require("express");
 const connection = require("../config/dbConnection");
+
 const {
   StudentClasses,
   StudentDataClassWise,
@@ -10,7 +11,8 @@ const {
   TimetableServicesforstudent,
   Leave_FormServices,
   getStudentsServices,
-  removeStudentService
+  removeStudentService,
+  GetleftStudentsServices,
 } = require("../services/studentServices");
 const { assign } = require("nodemailer/lib/shared");
 
@@ -182,7 +184,10 @@ function removeStudent(req, res){
 
 }
 
+function getLeftStudents(req,res){
+   GetleftStudentsServices(res);
 
+}
 
 
 module.exports = {
@@ -196,4 +201,5 @@ module.exports = {
   Leave_Form,
   getclasswisestudents,
   removeStudent,
+  getLeftStudents,
 };

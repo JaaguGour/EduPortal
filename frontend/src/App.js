@@ -28,11 +28,6 @@ import { AddStudentByAdmin } from "./Components/admin/addstudent";
 import { SendMailbyAdmin } from "./Components/admin/sendMail";
 import { AddTeacher } from "./Components/admin/addTeacher";
 import { ViewClasswiseAttendence } from "./Components/admin/AttendencebyAdmin";
-import { Sixth_class, Sixthclass } from "./Components/admin/Attendenceofsix";
-import { SeventhClass, Seventh_class } from "./Components/admin/seventhclass";
-import { Eight_class, Eightclass } from "./Components/admin/eightclass";
-import { Ninth_class, Ninthclass } from "./Components/admin/nineclass";
-import { Tenth_class, Tenthclass } from "./Components/admin/tenthclass";
 import { ViewAdminProfile } from "./Components/admin/viewprofiles";
 import { ViewStudentsbyAdmin } from "./Components/admin/viewstudents";
 import { StudentsofSixthclass } from "./Components/admin/viewstudentssix";
@@ -42,6 +37,11 @@ import { StudentsofNineclass } from "./Components/admin/viewstudentsnine";
 import { StudentsofTenthclass } from "./Components/admin/viewstudentsten";
 import { TimeTableAdmin } from "./Components/admin/timetable";
 import { ViewTeacherInfo } from "./Components/admin/viewteacher";
+import { UploadImage } from "./Components/students/uploadimage";
+import { Payment } from "./Components/students/Payment";
+import { FeeStatus } from "./Components/students/feeStatus";
+import { UploadImageByTeacher } from "./Components/teachers/uploadimagesByTeacher";
+import { UploadImageByAdmin } from "./Components/admin/uploadImagesByAdim";
 
 function App() {
   return (
@@ -51,18 +51,19 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/student" element={<StudentHomePage />}>
             <Route path="/student" element={<StudentHome />} />
-            <Route
-              path="/student/viewprofile"
-              element={<StudentViewProfile />}
-            />
+            <Route path="/student/viewprofile"  element={<StudentViewProfile />}  />
             <Route path="/student/viewteachers" element={<ViewTeachers />} />
             <Route path="/student/leave" element={<StudentDiary />} />
             <Route path="/student/timetable" element={<Timetable />} />
             <Route path="/student/calender" element={<Calendar />} />
             <Route path="/student/attendence" element={<StudentAttendence />} />
+            <Route path="/student/payment" element={<Payment />} />
+            <Route path="/student/uploadimage" element={<UploadImage />} />
+            <Route path="/student/feestatus" element={<FeeStatus />} />
           </Route>
           <Route path="/teacher" element={<TeacherHomePage />}>
             <Route path="/teacher/viewstudents" element={<ViewStudents />} />
+            <Route path="/teacher/uploadimage" element={<UploadImageByTeacher />} />
             <Route path="/teacher/editprofile" element={<EditProfile />} />
             <Route path="/teacher/viewprofile" element={<ViewProfile />} />
             <Route path="/teacher/timetable" element={<TimeTable />} />
@@ -74,44 +75,22 @@ function App() {
             <Route path="/teacher" element={<Home />} />
           </Route>
           <Route path="/admin/studentsix" element={<StudentsofSixthclass />} />
-          <Route
-            path="/admin/studentseven"
-            element={<StudentsofSeventhclass />}
-          />
-          <Route
-            path="/admin/studenteight"
-            element={<Studentsofeightclass />}
-          />
+          <Route path="/admin/studentseven" element={<StudentsofSeventhclass />}  />
+          <Route path="/admin/studenteight" element={<Studentsofeightclass />} />
           <Route path="/admin/studentnine" element={<StudentsofNineclass />} />
           <Route path="/admin/studentten" element={<StudentsofTenthclass />} />
-            <Route path="/admin/viewteachers" element={<ViewTeacherInfo />} />
+          <Route path="/admin/viewteachers" element={<ViewTeacherInfo />} />
           <Route path="/admin" element={<AdminHomePage />}>
             <Route path="/admin" element={<HomeAdmin />} />
             <Route path="/admin/calender" element={<Calendar />} />
+            <Route path="/admin/uploadimage" element={<UploadImageByAdmin />} />
             <Route path="/admin/addstudents" element={<AddStudentByAdmin />} />
             <Route path="/admin/sendmail" element={<SendMailbyAdmin />} />
             <Route path="/admin/addteacher" element={<AddTeacher />} />
             <Route path="/admin/viewProfile" element={<ViewAdminProfile />} />
-            <Route
-              path="/admin/viewstudents"
-              element={<ViewStudentsbyAdmin />}
-            />
+            <Route  path="/admin/viewstudents" element={<ViewStudentsbyAdmin />} />
             <Route path="/admin/timetable" element={<TimeTableAdmin />} />
-            <Route
-              path="/admin/attendence"
-              element={<ViewClasswiseAttendence />}
-            />
-            <Route path="/admin/viewattendence_six" element={<Sixthclass />} />
-            <Route
-              path="/admin/viewattendence_seven"
-              element={<SeventhClass />}
-            />
-            <Route
-              path="/admin/viewattendence_eight"
-              element={<Eightclass />}
-            />
-            <Route path="/admin/viewattendence_nine" element={<Ninthclass />} />
-            <Route path="/admin/viewattendence_ten" element={<Tenthclass />} />
+            <Route path="/admin/leftstudents"  element={<ViewClasswiseAttendence />} />
           </Route>
           <Route path="/login" element={<LogInPage />} />
           <Route path="*" element={<NotFound />} />

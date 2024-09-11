@@ -134,11 +134,11 @@ function getclass_Name(teacher){
     const day = req.query.daye;
     const sql = `SELECT Day${day} AS Day, Day${day},student_id FROM attendence_temp WHERE class_id=${class_id}`;
     connection.query(sql,(err,result)=>{
-      console.log(result);
+      console.log("result is :",result);
       res.send(result);
     })
-   console.log(class_id)  
-   console.log(req.query)
+  //  console.log(class_id)  
+  //  console.log(req.query)
   }
   function particullarStudentAttendence(req,res){
     // { user_name: 'Jaanvi9812', password: '2017-11-30' }
@@ -150,7 +150,7 @@ function getclass_Name(teacher){
           console.log(err);
           return reject(err)
         }
-        console.log(result)
+        console.log("result is ",result)
         res.send(result);
 
        })
@@ -219,9 +219,9 @@ function getclass_Name(teacher){
 function pastStudentRecord(studentdata){
 
   // for get the values of object in array.
-const studentValues = Object.values(studentdata);
+const studentValues = Object.values(studentdata); 
 const sql1 =
-  "INSERT INTO students_left_school (`first_name`, `last_name`, `father_name`, `mother_name`, `email`, `phone1`, `phone2`, `class`, `date_of_birth`, `address1`, `address2`, `city`, `state`, `zip`, `nationality`, `religion`, `blood_group`, `created_at`, `aadhar_number`, `user_name`, `password`, `gender` ) VALUES(?)";
+  "INSERT INTO students_left_school (`first_name`, `last_name`, `father_name`, `mother_name`, `email`, `phone1`, `phone2`, `class`, `date_of_birth`, `address1`, `address2`, `city`, `state`, `zip`, `nationality`, `religion`, `blood_group`, `created_at`, `aadhar_number`, `user_name`, `password`, `gender`, `fee` ) VALUES(?)";
   connection.query(sql1,[studentValues],(err,result)=>{
     if(err){
       console.log("error occure in insert data into table of left students",err);
@@ -231,7 +231,6 @@ const sql1 =
   })
 console.log(studentValues);
 }
-
 
   //  removeformlogin(studentdata.user_name);
   function  removeformlogin(user_name){
@@ -324,7 +323,23 @@ console.log(studentValues);
    //  console.log(userid);
  }
 
+function GetleftStudentsServices(res){
+  return new Promise((resolve,reject)=>{
+    const sql = "SELECT * FROM `students_left_school` WHERE 1";
+    connection.query(sql,(err,result)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      return res.status(200).send(result);
+    })
+  })
+  
 
+
+
+
+}
 
 
 
@@ -342,4 +357,5 @@ module.exports = {
   Leave_FormServices,
   getStudentsServices,
   removeStudentService,
+  GetleftStudentsServices,
 };

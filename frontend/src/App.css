@@ -1,7 +1,7 @@
-*{
+/* *{ */
   /* background-color: #007bff; */
-  color: rgba(3, 1, 66, 255);
-}
+  /* color: rgba(3, 1, 66, 255); */
+/* } */
 .App {
   text-align: center;
 }
@@ -54,6 +54,16 @@
   #form{
     margin-top: 10rem;
     padding : 0;
+  }
+}
+
+@media screen and (min-width:770px) {
+  .forcards{
+    /* margin: 10rem; */
+    margin-left: 4.5rem;
+    
+    cursor: pointer;
+    /* background-color: #282c34; */
   }
 }
 
@@ -247,3 +257,21 @@
 .dropdown-menu{
   padding: 0 !important;
 }
+.icon{
+  color: rgba(3, 1, 66, 255) !important;
+} 
+.button{
+  border: none !important;
+background: #224156 !important;
+color: white;
+}
+.button:hover{
+  background: #274a61 !important;
+
+}
+
+/* .cardhover:hover{ */
+  /* background-color: "rgba(221,221,231,255)"; */
+  /* background-color: rgba(221, 221, 241, 255) !important;
+  box-shadow: 10px 10px 5px lightblue !important; */
+/* } */

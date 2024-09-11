@@ -10,11 +10,13 @@ const {
   getTimeTableforStudent,
   Leave_Form,
   getclasswisestudents,
-  removeStudent
+  removeStudent,
+  getLeftStudents,
 } = require("../controllers/studentcontroller");
 const { route } = require('./authRoutes');
   
-router.post("/addstudent", handleStudentAdd);
+router.post("/addstudent",  handleStudentAdd);
+// router.post("/addstudent", handleStudentAdd);
 router.post("/addattendence", setAttendence);
 router.get("/getStudents", getStudents);
 router.get("/getattendence",getAttendence);
@@ -23,6 +25,6 @@ router.get("/getTimeTable", getTimeTableforStudent);
 router.post("/leave_form",Leave_Form);
 router.get("/getclasswisestudents",getclasswisestudents);
 router.delete("/removestudent",removeStudent);
-
+router.get("/leftstudents", getLeftStudents);
 
 module.exports = router;
