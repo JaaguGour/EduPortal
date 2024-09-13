@@ -1,0 +1,1 @@
+export const BACKEND_BASE_URL='https://eduportal-wx2w.onrender.com'

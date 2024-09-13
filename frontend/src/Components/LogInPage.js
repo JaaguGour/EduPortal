@@ -13,6 +13,7 @@ import { changeinfo } from "../store/teacherinfoReducer";
 import { changeStudentinfo } from "../store/studentinfoReducer";
 import { changeAdmininfo } from "../store/admininfoReducer";
 import Alerts from "./reusable/alerts";
+import { BACKEND_BASE_URL } from "../constants";
 export const LogInPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -71,7 +72,7 @@ export const LogInPage = () => {
     } else {
       try {
         axios
-          .post("/auth/login", {
+          .post(`${BACKEND_BASE_URL}/auth/login`, {
             name: username,
             password: password,
             role: role,

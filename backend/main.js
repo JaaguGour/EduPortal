@@ -13,11 +13,12 @@ const uploadRouter = require("./routers/uploadRouter")
 const crypto = require("crypto");
 const { Cashfree } = require("cashfree-pg");
 const paymentRoute = require("./routers/paymentRoutes");
-Port=5000
+const Port=process.env.port||5000
 const app = express();
-app.use(express.json())
 
 
+app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
