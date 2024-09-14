@@ -6,7 +6,7 @@ import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import Alerts from "../reusable/alerts";
 export const StudentsofTenthclass = () => {

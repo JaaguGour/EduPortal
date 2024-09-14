@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container,Row ,Col } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 export const ViewClasswiseAttendence = () =>{
 // export { Container } 

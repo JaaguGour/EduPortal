@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 export function AddTeacher() {
   const [formData, setFormData] = useState({

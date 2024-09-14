@@ -3,7 +3,7 @@ import AdminNavBar from "./navbar";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import BootstrapTable from "react-bootstrap-table-next";
 import CloseButton from "react-bootstrap/CloseButton";
@@ -12,55 +12,55 @@ export const ViewTeacherInfo = () => {
   const [teachersdata, setteachersdata] = useState([]);
   //function for get all the teachers information which is in 6th class.
   const navigate = useNavigate();
-    async function getTeacherInfo() {
-      try {
-        const response = await axios.get(
-          `${BACKEND_BASE_URL}/teacher/getTeachers`
-        );
-        // console.log(response.data);
-        setteachersdata(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+  async function getTeacherInfo() {
+    try {
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/teacher/getTeachers`
+      );
+      // console.log(response.data);
+      setteachersdata(response.data);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-   console.log(teachersdata)
+  console.log(teachersdata);
 
   const admininfo = useSelector((state) => state.AdminInfo.admininfo);
-    useEffect(() => {
-      getTeacherInfo();
-    }, []);
+  useEffect(() => {
+    getTeacherInfo();
+  }, []);
 
   // Function to handle button click
-    const handleButtonClick = (teacher) => {
-      console.log("Button clicked for:", teacher);
-      // Perform any action you want with the teacher data
-    
-      removeTeacher(teacher);
-    };
+  const handleButtonClick = (teacher) => {
+    console.log("Button clicked for:", teacher);
+    // Perform any action you want with the teacher data
+
+    removeTeacher(teacher);
+  };
 
   //request for delete teacher
-    async function removeTeacher(teacher) {
-        console.log(teacher);
-      try {
-        const response = await axios.delete(
-          `${BACKEND_BASE_URL}/teacher/removeteacher`,
-          {
-            params: {
-              teacherinfo: teacher,
-            },
-          }
-        );
+  async function removeTeacher(teacher) {
+    console.log(teacher);
+    try {
+      const response = await axios.delete(
+        `${BACKEND_BASE_URL}/teacher/removeteacher`,
+        {
+          params: {
+            teacherinfo: teacher,
+          },
+        }
+      );
 
-        console.log(response);
-        alert(response.data)
-        clickback();
-      } catch (error) {
-        console.log(error);
-      }
+      console.log(response);
+      alert(response.data);
+      clickback();
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-  const columns = [ 
+  const columns = [
     {
       dataField: "employee_id",
       text: "User Name",

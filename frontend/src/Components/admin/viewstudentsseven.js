@@ -8,7 +8,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 export const StudentsofSeventhclass = () => {
   const [studentsdata, setstudentsdata] = useState([]);
   //function for get all the students information which is in 6th class.

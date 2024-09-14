@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";

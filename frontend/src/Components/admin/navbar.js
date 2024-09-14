@@ -8,7 +8,7 @@ import profileimage from "../../Assets/physicsteacher.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
