@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 
 

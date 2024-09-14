@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import Alerts from "../reusable/alerts";
 

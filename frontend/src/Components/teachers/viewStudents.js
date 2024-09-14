@@ -3,27 +3,23 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { BACKEND_BASE_URL } from "../constants";
-
-
+import { BACKEND_BASE_URL } from "../../constants";
 
 export function ViewStudents() {
   const Data1 = useSelector((state) => state.TeacherInfo.info);
   const teacher_id = Data1 ? Data1.employee_id : "";
   const class_id = Data1 ? Data1.assigned_classes : "";
   const [studentData, setStudentData] = useState([]);
-   const date = new Date();
-   let day = date.getDate();
-   let month = date.getMonth() + 1;
-   let year = date.getFullYear();
-   let currentDate = `${day}-${month}-${year}`;
-
-
+  const date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let currentDate = `${day}-${month}-${year}`;
 
   useEffect(() => {
     async function GetStudentData() {
       try {
-        const res = await axios.get("/student/getStudents", {
+        const res = await axios.get(`${BACKEND_BASE_URL}/student/getStudents`, {
           params: {
             teacher: teacher_id,
           },
@@ -47,7 +43,7 @@ export function ViewStudents() {
       <Row>
         <Col md="10">
           <p>
-            <b>class</b> : {class_id} 
+            <b>class</b> : {class_id}
           </p>
         </Col>
         <Col>
