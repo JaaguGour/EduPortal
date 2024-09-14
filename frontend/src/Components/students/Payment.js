@@ -7,7 +7,7 @@ import { load } from "@cashfreepayments/cashfree-js";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
 import { useSelector } from "react-redux";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 
 

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 
 

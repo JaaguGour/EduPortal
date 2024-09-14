@@ -6,7 +6,7 @@ import image3 from "../../Assets/chemistryteacher.jpg"
 import image4 from "../../Assets/bioteacher.jpeg"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 export const ViewTeachers = ()=>{
   const [Data , setData]= useState([]);

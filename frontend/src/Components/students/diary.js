@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useSelector } from "react-redux";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import { Modal_ex } from "../reusable/modal";
 
@@ -19,7 +19,7 @@ export function StudentDiary() {
   const [minDate, setMinDate] = useState("");
   const [maxDate, setMaxDate] = useState("");
   const userid = student ? student.user_name : "";
-  const class_id = student ? student.class:"" ;
+  const class_id = student ? student.class : "";
   // Set minDate to tomorrow and maxDate to the last day of the current month
   useEffect(() => {
     const today = new Date();
@@ -52,43 +52,31 @@ export function StudentDiary() {
       return;
     }
     console.log({ userid, phone, reason, firstDate, lastDate });
-    
+
     submitForm();
-  
-
-   
-
-
-
-
 
     // Submit form logic here
   };
-   
-  async function submitForm(){
-    try{
-       
-    const response = await axios.post(
-      `${BACKEND_BASE_URL}/student/leave_form`,
-      {
-        userid,
-        class_id,
-        phone,
-        reason,
-        firstDate,
-        lastDate,
-      }
-    );
-   
-    alert(response.data);
-     
-    }
-    catch(err){
-     console.log(err);
+
+  async function submitForm() {
+    try {
+      const response = await axios.post(
+        `${BACKEND_BASE_URL}/student/leave_form`,
+        {
+          userid,
+          class_id,
+          phone,
+          reason,
+          firstDate,
+          lastDate,
+        }
+      );
+
+      alert(response.data);
+    } catch (err) {
+      console.log(err);
     }
   }
-
-
 
   return (
     <Container className="p-5">
@@ -165,4 +153,3 @@ export function StudentDiary() {
     </Container>
   );
 }
-

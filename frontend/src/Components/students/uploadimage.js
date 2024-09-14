@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 // import "./FileUpload.css"; // Optional CSS for styling
 import { useSelector } from "react-redux";
 // import { Button } from "bootstrap";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 export const UploadImage = () => {
   const [file, setFile] = useState(null);
