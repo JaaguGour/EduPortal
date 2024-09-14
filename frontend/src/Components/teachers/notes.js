@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector} from "react-redux";
 import BootstrapTable from 'react-bootstrap-table-next';
+import { BACKEND_BASE_URL } from "../constants";
+
+
 
 export const Notes = () => {
   // const [error, seterror] = useState('')
@@ -55,7 +58,9 @@ export const Notes = () => {
   },[])
   async function getLeaveFormData(){
      try{
-       const response = await axios.get("/teacher/StudentLeaveData");
+       const response = await axios.get(
+         `${BACKEND_BASE_URL}/teacher/StudentLeaveData`
+       );
        console.log(response.data);
        setdata(response.data)
      }

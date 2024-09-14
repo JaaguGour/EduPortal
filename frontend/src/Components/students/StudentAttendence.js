@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
+import { BACKEND_BASE_URL } from "../constants";
 
 export const StudentAttendence = () => {
   const StudentData = useSelector((state) => state.StudentInfo.studentinfo);
@@ -47,12 +48,15 @@ export const StudentAttendence = () => {
 
   async function getStudentAttendence() {
     try {
-      const response = await axios.get("/student/attendence", {
-        params: {
-          user_name: StudentData.user_name,
-          password: StudentData.password,
-        },
-      });
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/student/attendence`,
+        {
+          params: {
+            user_name: StudentData.user_name,
+            password: StudentData.password,
+          },
+        }
+      );
       console.log(response.data)
       setStudentAttData(response.data);
     } catch (err) {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container,Row ,Col } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
+import { BACKEND_BASE_URL } from "../constants";
 
 export const ViewClasswiseAttendence = () =>{
 // export { Container } 
@@ -14,7 +15,7 @@ const [students, setstudents] = useState([])
 
  async function viewLeftStudents(){
   try{
-   const response = await axios('/student/leftstudents');
+   const response = await axios(`${BACKEND_BASE_URL}/student/leftstudents`);
    console.log(response.data)
    setstudents(response.data)
 

@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
+import { BACKEND_BASE_URL } from "../constants";
+
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
@@ -16,12 +18,15 @@ export const StudentsofSixthclass = () => {
   const navigate = useNavigate();
   async function getstudentinfo() {
     try {
-      const response = await axios.get("/student/getclasswisestudents", {
-        params: {
-          class: 6,
-          teacherid: "Renu3750",
-        },
-      });
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/student/getclasswisestudents`,
+        {
+          params: {
+            class: 6,
+            teacherid: "Renu3750",
+          },
+        }
+      );
       console.log(response.data);
       setstudentsdata(response.data);
     } catch (error) {
@@ -59,9 +64,14 @@ export const StudentsofSixthclass = () => {
   //request for delete student
   async function removeStudent ( student){
      try{
-      const response = await axios.delete('/student/removestudent',{params: {
-       studentinfo : student
-      }})
+      const response = await axios.delete(
+        `${BACKEND_BASE_URL}/student/removestudent`,
+        {
+          params: {
+            studentinfo: student,
+          },
+        }
+      );
       console.log(response);
      }
      catch(error){

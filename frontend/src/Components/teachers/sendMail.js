@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import { BACKEND_BASE_URL } from "../constants";
 
 import Alerts from "../reusable/alerts";
 
@@ -155,7 +156,10 @@ export const SendMail = () => {
    
      try{
 
-       const response = await axios.post('/email/send-parent-email',emailInfo);
+       const response = await axios.post(
+         `${BACKEND_BASE_URL}/email/send-parent-email`,
+         emailInfo
+       );
        console.log(response.data);
         setShowAlert(true);
         setAlertColor("success");

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { BACKEND_BASE_URL } from "../constants";
 
 export function AddTeacher() {
   const [formData, setFormData] = useState({
@@ -118,7 +119,7 @@ export function AddTeacher() {
   };
     async function sendTeacherData (formData) {
         try{
-          const response = await axios.post("/teacher/addteacher", formData);
+          const response = await axios.post(`${BACKEND_BASE_URL}/teacher/addteacher`, formData);
           console.log(response.data);
           alert(response.data.message);
 

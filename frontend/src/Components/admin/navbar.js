@@ -8,6 +8,8 @@ import profileimage from "../../Assets/physicsteacher.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BACKEND_BASE_URL } from "../constants";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -31,7 +33,7 @@ function AdminNavBar() {
   useEffect(() => {
     const fetchImagePath = async () => {
       try {
-        const res = await axios.get(`/upload/getImageByStudentId/${userId}`);
+        const res = await axios.get(`${BACKEND_BASE_URL}/upload/getImageByStudentId/${userId}`);
         console.log(res.data);
         setImagePath(res.data.filePath); // assuming the API response has filePath
       } catch (err) {

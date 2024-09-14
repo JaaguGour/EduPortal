@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+import { BACKEND_BASE_URL } from "../constants";
+
 // import "./FileUpload.css"; // Optional CSS for styling
 import { useSelector } from "react-redux";
 // import { Button } from "bootstrap";
@@ -29,7 +31,7 @@ export const UploadImageByAdmin = () => {
     formData.append("file", file);
     formData.append("userid", userId);
     try {
-      const res = await axios.post("/upload/files", formData, {
+      const res = await axios.post(`${BACKEND_BASE_URL}/upload/files`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setMessage("File uploaded successfully");

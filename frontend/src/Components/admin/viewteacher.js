@@ -3,6 +3,8 @@ import AdminNavBar from "./navbar";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BACKEND_BASE_URL } from "../constants";
+
 import BootstrapTable from "react-bootstrap-table-next";
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +14,9 @@ export const ViewTeacherInfo = () => {
   const navigate = useNavigate();
     async function getTeacherInfo() {
       try {
-        const response = await axios.get("/teacher/getTeachers");
+        const response = await axios.get(
+          `${BACKEND_BASE_URL}/teacher/getTeachers`
+        );
         // console.log(response.data);
         setteachersdata(response.data);
       } catch (error) {
@@ -39,11 +43,14 @@ export const ViewTeacherInfo = () => {
     async function removeTeacher(teacher) {
         console.log(teacher);
       try {
-        const response = await axios.delete("/teacher/removeteacher", {
-          params: {
-            teacherinfo: teacher,
-          },
-        });
+        const response = await axios.delete(
+          `${BACKEND_BASE_URL}/teacher/removeteacher`,
+          {
+            params: {
+              teacherinfo: teacher,
+            },
+          }
+        );
 
         console.log(response);
         alert(response.data)

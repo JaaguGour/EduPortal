@@ -6,6 +6,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useSelector } from "react-redux";
+import { BACKEND_BASE_URL } from "../constants";
+
 import { Modal_ex } from "../reusable/modal";
 
 export function StudentDiary() {
@@ -66,14 +68,17 @@ export function StudentDiary() {
   async function submitForm(){
     try{
        
-    const response = await axios.post("/student/leave_form", {
-      userid,
-      class_id,
-      phone,
-      reason,
-      firstDate,
-      lastDate,
-    });
+    const response = await axios.post(
+      `${BACKEND_BASE_URL}/student/leave_form`,
+      {
+        userid,
+        class_id,
+        phone,
+        reason,
+        firstDate,
+        lastDate,
+      }
+    );
    
     alert(response.data);
      

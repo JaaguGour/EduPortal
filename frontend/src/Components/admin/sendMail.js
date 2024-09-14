@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
+import { BACKEND_BASE_URL } from "../constants";
 
 export const SendMailbyAdmin = () => {
   const Data = useSelector((state) => state.TeacherInfo.info);
@@ -142,7 +143,10 @@ export const SendMailbyAdmin = () => {
 
   async function sendEmail(emailInfo) {
     try {
-      const response = await axios.post("/email/send-parent-email", emailInfo);
+      const response = await axios.post(
+        `${BACKEND_BASE_URL}/email/send-parent-email`,
+        emailInfo
+      );
       console.log(response.data);
     } catch (err) {
       console.log(err);

@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Cards from "../reusable/card";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
+
 export const ViewStudentsbyAdmin = () => {
   // export { Container }
   const admininfo = useSelector((state) => state.AdminInfo.admininfo);

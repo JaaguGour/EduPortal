@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Container ,Row ,Col} from "react-bootstrap"
 import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
+import { BACKEND_BASE_URL } from "../constants";
 
 
 export const Timetable = () =>{
@@ -19,9 +20,12 @@ export const Timetable = () =>{
   async function getTimeForStudent () {
       try {
         console.log(class_id);
-        const response = await axios.get("/student/getTimeTable", {
-          params: { class : class_id },
-        });   
+        const response = await axios.get(
+          `${BACKEND_BASE_URL}/student/getTimeTable`,
+          {
+            params: { class: class_id },
+          }
+        );   
         console.log(response.data);
         settimetable(response.data[0])
       }
@@ -37,7 +41,9 @@ console.log(timetable)
 useEffect(() => {
   const fetchImagePath = async ( ) => {
     try {
-      const res = await axios.get(`/upload/getImageByStudentId/${userId}`);
+      const res = await axios.get(
+        `${BACKEND_BASE_URL}/upload/getImageByStudentId/${userId}`
+      );
       console.log(res.data)
       setImagePath(res.data.filePath); // assuming the API response has filePath
     } catch (err) {

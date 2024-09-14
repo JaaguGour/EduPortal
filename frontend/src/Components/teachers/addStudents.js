@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
+import { BACKEND_BASE_URL } from "../constants";
 
 
 
@@ -120,11 +121,15 @@ export function AddStudent() {
       
       console.log("Form submitted successfully!", formData);
       try {
-        const response = await axios.post("/student/addstudent", formData, {
-          Headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const response = await axios.post(
+          `${BACKEND_BASE_URL}/student/addstudent`,
+          formData,
+          {
+            Headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
         console.log(response.data);
        
          setShowAlert(true);

@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { BACKEND_BASE_URL } from "../constants";
 
 
 function StudentNavBar() {
@@ -23,7 +24,9 @@ function StudentNavBar() {
   useEffect(() => {
     const fetchImagePath = async () => {
       try {
-        const res = await axios.get(`/upload/getImageByStudentId/${userId}`);
+        const res = await axios.get(
+          `${BACKEND_BASE_URL}/upload/getImageByStudentId/${userId}`
+        );
         console.log(res.data);
         setImagePath(res.data.filePath); // assuming the API response has filePath
       } catch (err) {

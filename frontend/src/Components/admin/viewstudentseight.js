@@ -2,6 +2,8 @@
 import { Container, Row } from "react-bootstrap";
 import AdminNavBar from "./navbar";
 import { useSelector } from "react-redux";
+import { BACKEND_BASE_URL } from "../constants";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
@@ -21,7 +23,7 @@ export const Studentsofeightclass = () => {
 const navigate = useNavigate();
   async function getstudentinfo() {
     try {
-      const response = await axios.get("/student/getclasswisestudents", {
+      const response = await axios.get(`${BACKEND_BASE_URL}/student/getclasswisestudents`, {
         params: {
           class: 8,
           teacherid: "Pooja6677",
@@ -70,7 +72,7 @@ const navigate = useNavigate();
   //request for delete student
   async function removeStudent(student) {
     try {
-      const response = await axios.delete("/student/removestudent", {
+      const response = await axios.delete(`${BACKEND_BASE_URL}/student/removestudent`, {
         params: {
           studentinfo: student,
         },

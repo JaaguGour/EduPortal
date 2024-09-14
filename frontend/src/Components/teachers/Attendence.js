@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Alerts from "../reusable/alerts";
+import { BACKEND_BASE_URL } from "../constants";
+
 
 export function MarkAttendence() {
   const Data1 = useSelector((state) => state.TeacherInfo.info);
@@ -36,7 +38,7 @@ export function MarkAttendence() {
 
   async function GetAttendence() {
     try {
-      const res = await axios.get("/student/getattendence", {
+      const res = await axios.get(`${BACKEND_BASE_URL}/student/getattendence`, {
         params: { class_id: Data1.assigned_classes, daye: day },
       });
       setstudentattendence(res.data);
@@ -64,7 +66,7 @@ export function MarkAttendence() {
   useEffect(() => {
     async function GetStudentData() {
       try {
-        const res = await axios.get("/student/getStudents", {
+        const res = await axios.get(`${BACKEND_BASE_URL}/student/getStudents`, {
           params: { teacher: teacher_id },
         });
         setStudentData(res.data);
@@ -102,7 +104,10 @@ export function MarkAttendence() {
   // }
   async function handleSubmit() {
     try {
-      const res = await axios.post("/student/addattendence", attendanceData);
+      const res = await axios.post(
+        `${BACKEND_BASE_URL}/student/addattendence`,
+        attendanceData
+      );
   
       setissubmit(true);
       setShowAlert(true);

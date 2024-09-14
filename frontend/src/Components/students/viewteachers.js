@@ -6,12 +6,15 @@ import image3 from "../../Assets/chemistryteacher.jpg"
 import image4 from "../../Assets/bioteacher.jpeg"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { BACKEND_BASE_URL } from "../constants";
+
 export const ViewTeachers = ()=>{
   const [Data , setData]= useState([]);
   useEffect(()=>{
      async function getAllTeachers(){
        try{
-          const result =await axios.get("/teacher/getTeachers");
+          const result = await axios.get(`${BACKEND_BASE_URL}/teacher/getTeachers`
+          );
           // console.log(result.data)
           setData(result.data)
        }

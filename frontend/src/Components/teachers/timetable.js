@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container, Row ,Col} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import { BACKEND_BASE_URL } from "../constants";
 
 export const TimeTable = () => {
   const [timetableitems, settimetableitems] = useState([]);
@@ -13,7 +14,9 @@ export const TimeTable = () => {
   //function to fetch timetable for teacher 
   async function getTimeTable(){
     try{
-      const response = await axios.get("/teacher/getTimeTable");
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/teacher/getTimeTable`
+      );
       console.log(response.data);
       settimetableitems(response.data)
       

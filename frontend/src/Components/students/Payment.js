@@ -7,6 +7,10 @@ import { load } from "@cashfreepayments/cashfree-js";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../reusable/alerts";
 import { useSelector } from "react-redux";
+import { BACKEND_BASE_URL } from "../constants";
+
+
+
 
 export function Payment() {
   const studentinfo = useSelector((state) => state.StudentInfo.tudentinfo);
@@ -106,7 +110,7 @@ export function Payment() {
    const verifyPayment = async () => {
      try {
       console.log(orderId);
-       let res = await axios.post("/payment/verify", {
+       let res = await axios.post(`${BACKEND_BASE_URL}/payment/verify`, {
          orderId: orderId,
        });
        if (res && res.data) {
@@ -135,7 +139,8 @@ export function Payment() {
 
   const getSessionId = async () => {
     try {
-      let res = await axios.post("/payment/student",
+      let res = await axios.post(
+        `${BACKEND_BASE_URL}/payment/student`,
         formData
       );
       if (res.data && res.data.payment_session_id) {

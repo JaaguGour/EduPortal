@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { useSelector } from "react-redux";
+import { BACKEND_BASE_URL } from "../constants";
+
 export const TimeTableAdmin = () => {
   const [timetableitems, settimetableitems] = useState([]);
   const admininfo = useSelector((state) => state.AdminInfo.admininfo);
@@ -13,7 +15,7 @@ export const TimeTableAdmin = () => {
   //function to fetch timetable for teacher
   async function getTimeTable() {
     try {
-      const response = await axios.get("/teacher/getTimeTable");
+      const response = await axios.get(`${BACKEND_BASE_URL}/teacher/getTimeTable`);
       console.log(response.data);
       settimetableitems(response.data);
     } catch (err) {

@@ -6,6 +6,8 @@ import axios from "axios";
 import BootstrapTable from "react-bootstrap-table-next";
 import CloseButton from "react-bootstrap/CloseButton";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_BASE_URL } from "../constants";
+
 import Alerts from "../reusable/alerts";
 export const StudentsofTenthclass = () => {
   const [studentsdata, setstudentsdata] = useState([]);
@@ -16,12 +18,15 @@ export const StudentsofTenthclass = () => {
   const navigate = useNavigate();
   async function getstudentinfo() {
     try {
-      const response = await axios.get("/student/getclasswisestudents", {
-        params: {
-          class: 10,
-          teacherid: "Amit1012",
-        },
-      });
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/student/getclasswisestudents`,
+        {
+          params: {
+            class: 10,
+            teacherid: "Amit1012",
+          },
+        }
+      );
       console.log(response.data);
       setstudentsdata(response.data);
     } catch (error) {
@@ -60,11 +65,14 @@ export const StudentsofTenthclass = () => {
   //request for delete student
   async function removeStudent(student) {
     try {
-      const response = await axios.delete("/student/removestudent", {
-        params: {
-          studentinfo: student,
-        },
-      });
+      const response = await axios.delete(
+        `${BACKEND_BASE_URL}/student/removestudent`,
+        {
+          params: {
+            studentinfo: student,
+          },
+        }
+      );
       console.log(response);
     } catch (error) {
       console.log(error);

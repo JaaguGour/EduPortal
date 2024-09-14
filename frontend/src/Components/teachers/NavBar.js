@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 // import Button from 'react-bootstrap/Button';
 import Logo from "../../Assets/Logo.jpg"
 import Image from "react-bootstrap/Image";
+import { BACKEND_BASE_URL } from "../constants";
 import profileimage from "../../Assets/mathteacher.jpg"
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +17,7 @@ function TeacherNavBar() {
   const isValid = useSelector((state) => state.LogIn.isValid);
   const navigate = useNavigate();
     const Data = useSelector((state) => state.TeacherInfo.info);
+
   const userId = Data ? Data.user_name : "";
   const [imagePath, setImagePath] = useState("");
   const [error, setError] = useState("");
