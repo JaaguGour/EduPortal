@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 export const StudentAttendence = () => {
   const StudentData = useSelector((state) => state.StudentInfo.studentinfo);
