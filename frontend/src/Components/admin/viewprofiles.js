@@ -1,4 +1,3 @@
-
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
@@ -9,29 +8,26 @@ import { useEffect } from "react";
 import axios from "axios";
 import { BACKEND_BASE_URL } from "../../constants";
 
-
 export function ViewAdminProfile() {
   const Data = useSelector((state) => state.AdminInfo.admininfo);
   const userId = Data ? Data.username : "";
-   const [imagePath, setImagePath] = useState("");
-   const [error, setError] = useState("");
+  const [imagePath, setImagePath] = useState("");
+  const [error, setError] = useState("");
 
-
-      useEffect(() => {
-        const fetchImagePath = async () => {
-          try {
-            const res = await axios.get(
-              `${BACKEND_BASE_URL}/upload/getImageByStudentId/${userId}`
-            );
-            console.log(res.data);
-            setImagePath(res.data.filePath); // assuming the API response has filePath
-          } catch (err) {
-            setError("Failed to fetch image");
-          }
-        };
-        fetchImagePath();
-      }, [imagePath]);
-
+  useEffect(() => {
+    const fetchImagePath = async () => {
+      try {
+        const res = await axios.get(
+          `${BACKEND_BASE_URL}/upload/getImageByStudentId/${userId}`
+        );
+        console.log(res.data);
+        setImagePath(res.data.filePath); // assuming the API response has filePath
+      } catch (err) {
+        setError("Failed to fetch image");
+      }
+    };
+    fetchImagePath();
+  }, [imagePath]);
 
   console.log(Data);
 

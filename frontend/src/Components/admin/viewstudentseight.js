@@ -2,7 +2,7 @@
 import { Container, Row } from "react-bootstrap";
 import AdminNavBar from "./navbar";
 import { useSelector } from "react-redux";
-import { BACKEND_BASE_URL } from "../constants";
+import { BACKEND_BASE_URL } from "../../constants";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -24,6 +24,7 @@ const navigate = useNavigate();
   async function getstudentinfo() {
     try {
       const response = await axios.get(`${BACKEND_BASE_URL}/student/getclasswisestudents`, {
+
         params: {
           class: 8,
           teacherid: "Pooja6677",
