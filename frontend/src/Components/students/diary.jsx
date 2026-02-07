@@ -8,8 +8,6 @@ import Row from "react-bootstrap/Row";
 import { useSelector } from "react-redux";
 import { BACKEND_BASE_URL } from "../../constants";
 
-import { Modal_ex } from "../reusable/modal";
-
 export function StudentDiary() {
   const student = useSelector((state) => state.StudentInfo.studentinfo);
   const [phone, setPhone] = useState("");

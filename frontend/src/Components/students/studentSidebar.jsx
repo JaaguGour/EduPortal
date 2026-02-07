@@ -1,15 +1,14 @@
 import Nav from "react-bootstrap/Nav";
-import { Col, Container,  Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { FaUserEdit } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 import { FaUserCheck } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
 import { IoIosHome } from "react-icons/io";
-import { modal } from "../reusable/modal";
 import { FaRupeeSign } from "react-icons/fa";
 // import { TbCoinRupee } from "react-icons/fa";
 import { TbCoinRupee } from "react-icons/tb";
- import { IoCalendarNumber } from "react-icons/io5";
+import { IoCalendarNumber } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { GoHistory } from "react-icons/go";
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
@@ -145,7 +144,7 @@ export const StudentSideBar = () => {
                   to={"/login"}
                   className="text-white"
                   style={{ position: "absolute", bottom: "0" }}
-                  // onClick={()=>handleLogout()}
+                // onClick={()=>handleLogout()}
                 >
                   <h5>
                     {" "}
